@@ -2,20 +2,25 @@ import 'package:flutter/material.dart';
 import 'api.dart';
 import 'blog_model.dart';
 import 'blog_detail_screen.dart';
+//BlogListScreen is Stateful wodget Means It will chnage the ui ..
 
 class BlogListScreen extends StatefulWidget {
   @override
   _BlogListScreenState createState() => _BlogListScreenState();
 }
-
 class _BlogListScreenState extends State<BlogListScreen> {
   List<Blog> blogs = [];
 
   @override
+  // this Means it will be callled when the widget is created.
+
   void initState() {
     super.initState();
+    // Api called .
     fetchBlogsData();
   }
+  //After getting the data from The api , I m fitting the data in blogdata class .
+
 
   Future<void> fetchBlogsData() async {
     try {
@@ -27,6 +32,15 @@ class _BlogListScreenState extends State<BlogListScreen> {
       print(e);
     }
   }
+
+  // Function to toggle the favorite status of a blog
+  void toggleFavoriteStatus(int index) {
+    setState(() {
+      blogs[index].isFavorite = !blogs[index].isFavorite;
+    });
+  }
+
+  // The build method defines The User Interface of The  BlogListScreen
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +67,7 @@ class _BlogListScreenState extends State<BlogListScreen> {
                 children: [
                   Image.network(
                     blog.imageUrl,
-                    height: 300, // Adjust image height as needed
+                    height: 300,
                     fit: BoxFit.cover,
                   ),
                   Padding(
@@ -65,6 +79,15 @@ class _BlogListScreenState extends State<BlogListScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      blog.isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: Colors.red,
+                    ),
+                    onPressed: () {
+                      toggleFavoriteStatus(index); // Toggle favorite status
+                    },
                   ),
                 ],
               ),

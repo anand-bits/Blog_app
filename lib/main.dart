@@ -13,6 +13,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      // BlogListScreen Is the Intial Screeen Shown When The App is open.
+
+
       home: BlogListScreen(),
     );
   }
