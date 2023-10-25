@@ -20,7 +20,7 @@ Follow these steps to build and run your Flutter app:
 
 1. **Clone the Repository**:
 
-   Clone the project repository from GitHub using the following link: [Internshala Assignment Repository](https://github.com/anand-bits/internshala_assignment).
+   Clone the project repository from GitHub using the following link: [Blog_app](https://github.com/anand-bits/Blog_app).
 
 2. **Open the Project**:
 
