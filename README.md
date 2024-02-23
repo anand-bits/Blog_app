@@ -1,6 +1,7 @@
 # Internshala Assignment
 
-A new Flutter project  Blog..  g
+A new Flutter project  Blog.. 
+A app
 
 ## Getting Started
 
